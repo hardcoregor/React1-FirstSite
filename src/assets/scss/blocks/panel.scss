@@ -1,0 +1,32 @@
+.panel {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.panel__title {
+  margin: 40px 0;
+}
+
+.panel__search {
+  display: flex;
+  padding: 0 15px;
+
+  width: 223px;
+
+  border: 1px solid #f3f3f3;
+  border-radius: 10px;
+}
+
+.panel__input {
+  padding: 13px;
+  width: 100%;
+
+  border: 0;
+
+  font-size: 16px;
+
+  &:focus {
+    outline: none;
+  }
+}

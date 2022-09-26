@@ -1,0 +1,37 @@
+body {
+  margin: 0;
+  font-family: 'Inter', system-ui;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #e7f6ff;
+}
+
+* {
+  font-family: inherit;
+}
+
+.page__items::-webkit-scrollbar {
+  width: 15px;
+}
+
+.page__items::-webkit-scrollbar-track {
+  background: rgb(224, 224, 224);
+  box-shadow: 0 0 1.5px rgba(0, 0, 0, .15) inset;
+}
+
+.page__items::-webkit-scrollbar-thumb {
+  background: rgb(173, 173, 173);
+  border-radius: 10px;
+  border: 3px solid rgb(202, 202, 202)
+}
+
+.page__items::-webkit-scrollbar-thumb:hover {
+  background: rgb(145, 145, 145);
+}
+
+// Blocks
+
+@import "./blocks/page.scss";
+@import "./blocks/header.scss";
+@import "./blocks/card.scss";
+@import "./blocks/panel.scss";

@@ -1,0 +1,52 @@
+.header {
+  padding-bottom: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  border-bottom: 1px solid #eaeaea;
+}
+
+.header__left {
+  display: flex;
+  align-items: center;
+}
+
+.header__logo {
+  margin-right: 15px;
+  width: 40px;
+  height: 40px;
+}
+
+.header__icons {
+  width: 18px;
+  height: 18px;
+
+  &--ml10 {
+    margin-right: 10px;
+  }
+}
+
+.header__name {
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.header__description {
+  margin: 0;
+}
+
+.header__right {
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.header__buttons {
+  list-style-type: none;
+  text-align: center;
+
+  &--sum {
+    margin-right: 30px;
+  }
+}
