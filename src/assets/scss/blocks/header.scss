@@ -38,6 +38,7 @@
 
 .header__right {
   display: flex;
+  align-items: baseline;
   margin: 0;
   padding: 0;
 }
@@ -47,6 +48,11 @@
   text-align: center;
 
   &--sum {
+    display: flex;
+    align-items: center;
+
     margin-right: 30px;
+
+    cursor: pointer;
   }
 }
