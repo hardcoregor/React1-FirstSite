@@ -46,13 +46,15 @@
 .header__buttons {
   list-style-type: none;
   text-align: center;
+  
+  cursor: pointer;
 
   &--sum {
     display: flex;
     align-items: center;
+  }
 
-    margin-right: 30px;
-
-    cursor: pointer;
+  &--fav {
+    margin: 0 30px;
   }
 }

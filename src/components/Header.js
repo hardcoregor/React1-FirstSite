@@ -14,8 +14,11 @@ function Header(props) {
         <img className="header__icons header__icons--ml10" src="/img/card.svg" alt="logo" />
         <span className="header__sum">1205 грн.</span>
       </li>
+      <li className="header__buttons header__buttons--fav">
+        <img className="header__icons" src="/img/favorites.svg" alt="favorites" />
+      </li>
       <li className="header__buttons">
-        <img className="header__icons" src="/img/user.svg" alt="logo" />
+        <img className="header__icons" src="/img/user.svg" alt="users" />
       </li>
     </ul>
   </header>

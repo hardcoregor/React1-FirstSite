@@ -60,6 +60,8 @@
 
   cursor: pointer;
 
+  transition: transform .25s linear;
+
   &--like {
     position: absolute;
     background: none;
@@ -67,8 +69,17 @@
     align-items: center;
   }
 
+  &--liked {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #FEF0F0 ;
+  }
+
   &--size {
-    transform: scale(.8);
+    transform: scale(.95);
   }
 
   &--close {
@@ -83,8 +94,25 @@
     }
   }
 
+  
+  &--closed {
+    border: none;
+    opacity: 0.5;
+
+    transition: opacity .2s linear;
+
+    &:hover {
+      opacity: 1;
+      transform: scale(.8);
+    }
+  }
+
   &.active {
     background: linear-gradient(180deg, #89F09C 0%, #3CC755 100%);
+  }
+
+  &:hover {
+    transform: scale(1.12);
   }
 }
 
