@@ -30,10 +30,14 @@
 .header__name {
   margin: 0;
   text-transform: uppercase;
+
+  color: #000000;
 }
 
 .header__description {
   margin: 0;
+  
+  color: #9D9D9D;
 }
 
 .header__right {
@@ -46,7 +50,7 @@
 .header__buttons {
   list-style-type: none;
   text-align: center;
-  
+
   cursor: pointer;
 
   &--sum {

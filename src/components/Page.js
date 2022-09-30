@@ -1,7 +1,5 @@
-// import ItemIn from './ItemInBasket';
-// import itemsInArray from '../assets/arrs/itemInArray';
 
-function Page({ onCloseCart, onRemove, items = [] }) {
+function Page({onCloseCart, onRemove, items = [] }) {
   return (
     <div className="page__darken">
       <div className="page__sidebar">
@@ -19,7 +17,7 @@ function Page({ onCloseCart, onRemove, items = [] }) {
             <div className="page__items__main">
               {
                 items.map((obj) => (
-                  <div className="page__item">
+                  <div key={obj.id} className="page__item">
                     <img className="page__item__photo" src={obj.imageUrl} alt="shoes" />
                     <div className="page__item__content">
                       <h4 className="page__item__title">{obj.title}</h4>
