@@ -1,7 +1,42 @@
+import React from 'react';
+import axios from 'axios';
 
-function Page({onCloseCart, onRemove, items = [] }) {
+import Info from "./info";
+import {useCart} from '../hooks/useCart';
+
+const delay = () => new Promise((resolve) => setTimeout(resolve, 1000));
+
+function Page({ onCloseCart, onRemove, items = [], opened }) {
+
+  const { cartItems, setCartItems, totalPrice} = useCart();
+  const [oredrId, setOrderIt] = React.useState(null);
+  const [isComplete, setIsComplete] = React.useState(false);
+  const [isLoading, setIsLoading] = React.useState(false);
+
+  const onClickOrder = async () => {
+    try {
+      setIsLoading(true);
+      const { data } = await axios.post('https://63331c02573c03ab0b584f72.mockapi.io/orders', {
+        items: cartItems,
+      });
+
+      setOrderIt(data.id);
+      setIsComplete(true);
+      setCartItems([]);
+
+      for (let i=0; i < cartItems.length; i++) {
+        const item = cartItems[i];
+        await axios.delete('https://63331c02573c03ab0b584f72.mockapi.io/cart/' + item.id);
+        await delay();
+      }
+    } catch (error) {
+      alert('Failed to create order :(')
+    }
+    setIsLoading(false);
+  }
+
   return (
-    <div className="page__darken">
+    <div className={opened ? "page__darken" : "page__visible"}>
       <div className="page__sidebar">
 
         <div className="page__header">
@@ -34,32 +69,25 @@ function Page({onCloseCart, onRemove, items = [] }) {
                 <li className="page__item__allsum">
                   <h5 className="page__item__title-sum">Итого:</h5>
                   <div className="page__devider"></div>
-                  <b className="page__item__sum--allprice">21 599 грн</b>
+                  <b className="page__item__sum--allprice">{totalPrice} грн</b>
                 </li>
                 <li className="page__item__allsum">
                   <h5>Доставка:</h5>
                   <div className="page__devider"></div>
-                  <b>89 грн.</b>
+                  <b className='page__item__allsum-total'>{totalPrice / 100} грн.</b>
                 </li>
               </ul>
 
-              <button className="page__button">Оформить заказ
+              <button disabled={isLoading} onClick={onClickOrder} className="page__button">Оформить заказ
                 <img className="page__button__img" src="/img/arrow.svg" alt="" />
               </button>
             </div>
           </div>
         ) : (
-          <div className="page__empty">
-            <img src="/img/box.png" alt="" className="page__empty__img" />
-            <h5 className="page__empty__title">Корзина пустая</h5>
-            <p className="page__empty__text">
-              Добавьте хотя бы одну пару кроссовок, чтобы сделать заказ.
-            </p>
-            <button onClick={onCloseCart} className="page__button page__button--back">
-              <p className="page__button__text">Вернуться назад</p>
-              <img className="page__button__img page__button__img--back" src="/img/arrow.svg" alt="" />
-            </button>
-          </div>
+          <Info
+            title={isComplete ? "Заказ оформлен!" : "Корзина пустая"}
+            description={isComplete ? `Ваш заказ #${oredrId} скоро будет передан курьерской доставке` : "Добавьте хотя бы одну пару кроссовок, чтобы сделать заказ."}
+            image={isComplete ? "/img/complete-order.png" : "/img/box.png"} />
         )}
 
 

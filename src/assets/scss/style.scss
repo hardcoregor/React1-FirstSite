@@ -28,6 +28,7 @@ body {
 
 .page__items::-webkit-scrollbar-thumb:hover {
   background: rgb(145, 145, 145);
+  display: none
 }
 
 // Blocks
@@ -35,5 +36,4 @@ body {
 @import "./blocks/page.scss";
 @import "./blocks/header.scss";
 @import "./blocks/card.scss";
-@import "./blocks/panel.scss";
 @import "./blocks/panel.scss";

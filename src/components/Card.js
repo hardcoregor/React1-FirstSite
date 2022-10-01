@@ -1,18 +1,19 @@
 import React from 'react';
 import ContentLoader from "react-content-loader";
 
-function Card({ id, onClickPlus, onFavorite, imageUrl, title, price, favorited = false, added = false, loading = false }) {
-  const [isAdded, setIsAdded] = React.useState(added);
-  const [isFavorite, setIsFavorite] = React.useState(favorited);
+import { AppContext } from '../App';
+
+function Card({ id, onClickPlus, onFavorite, imageUrl, title, price, loading = false }) {
+
+  const { isItemAdded, isItemFav } = React.useContext(AppContext);
+  const itemObj = { id, parentId: id, imageUrl, title, price };
 
   const handleClick = () => {
-    onClickPlus({ id, imageUrl, title, price });
-    setIsAdded(!isAdded);
+    onClickPlus(itemObj);
   }
 
   const onClickFavorite = () => {
-    onFavorite({ id, imageUrl, title, price });
-    setIsFavorite(!isFavorite);
+    onFavorite(itemObj);
   }
 
   return (
@@ -33,9 +34,11 @@ function Card({ id, onClickPlus, onFavorite, imageUrl, title, price, favorited =
             <rect x="117" y="175" rx="10" ry="10" width="32" height="32" />
           </ContentLoader> :
           <>
-            <button className={isFavorite ? "card__button card__button--liked" : "card__button card__button--like"} onClick={onClickFavorite}>
-              <img className="card__button--size" src={isFavorite ? "/img/favorite.svg" : "/img/like.svg"} alt="heart" />
-            </button>
+
+            {onFavorite && <button className={isItemFav(id) ? "card__button card__button--liked" : "card__button card__button--like"} onClick={onClickFavorite}>
+
+              <img className="card__button--size" src={isItemFav(id) ? "/img/favorite.svg" : "/img/like.svg"} alt="heart" />
+            </button>}
             <img className="card__photo" src={imageUrl} alt="" />
             <h4 className="card__describe">{title}</h4>
             <div className="card__footer">
@@ -43,9 +46,11 @@ function Card({ id, onClickPlus, onFavorite, imageUrl, title, price, favorited =
                 <span className="card__price__title">Цена:</span>
                 <b className="card__price">{price} грн.</b>
               </div>
-              <button className={isAdded ? "card__button active" : "card__button"} onClick={handleClick}>
-                <img className="card__icon" src={isAdded ? "/img/added.svg" : "/img/plus.svg"} alt="" />
-              </button>
+
+              {onClickPlus && <button className={isItemAdded(id) ? "card__button active" : "card__button"} onClick={handleClick}>
+                <img className="card__icon" src={isItemAdded(id) ? "/img/added.svg" : "/img/plus.svg"} alt="" />
+              </button>}
+
             </div>
           </>
       }

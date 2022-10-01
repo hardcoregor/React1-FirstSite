@@ -17,6 +17,15 @@
   top: 0;
   background-color: rgba(0, 0, 0, 0.25);
   z-index: 1;
+  visibility: visible;
+
+  transition: visibility .1s ease-in-out;
+}
+
+.page__visible {
+  visibility: hidden;
+
+  transition: visibility .1s ease-in-out;
 }
 
 .page__sidebar {
@@ -34,6 +43,7 @@
 
   background: #FFFFFF;
   box-shadow: -10px 4px 24px rgba(0, 0, 0, 0.1);
+  
 }
 
 .page__header {
@@ -122,6 +132,10 @@
   display: flex;
   list-style-type: none;
   align-items: center;
+
+  &-total {
+    width: 31%;
+  }
 }
 
 .page__devider {
@@ -165,6 +179,11 @@
     .page__button__img--back {
       transform: rotateY(180deg) translateX(3px);
     }
+
+  &:disabled {
+    background-color: #bebebe;
+  }
+
   }
 
   &:active {

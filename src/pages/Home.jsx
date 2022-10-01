@@ -1,21 +1,17 @@
+import React from 'react';
 import Card from '../components/Card';
 
-function Home({ items, cartItems, favorites, searchValue, setSearchValue, onChangeSearchInput, onAddToCart, onAddToFavorite, isLoading }) {
+function Home({ items, favorites, searchValue, setSearchValue, onChangeSearchInput, onAddToCart, onAddToFavorite, isLoading }) {
 
   const renderItems = () => {
     const filteredItems = items.filter((item) => item.title.toLowerCase().includes(searchValue.toLocaleLowerCase()));
     return ( isLoading ? [...Array(12)] : filteredItems).map((item, index) =>
       <Card
-        id={index}
-        onClickPlus={(obj) => onAddToCart(obj)}
-        onFavorite={(obj) => onAddToFavorite(obj)}
-        // added={cartItems}
-        added={cartItems.some(obj => Number(obj.id) === Number(item.id))}
-        // favorited={favorites}
-        favorited={favorites.some(obj => Number(obj.id) === Number(item.id))}
-        loading={isLoading}
-        {...item}
-      />
+      id={index}
+      onClickPlus={(obj) => onAddToCart(obj)}
+      onFavorite={(obj) => onAddToFavorite(obj)}
+      loading={isLoading}
+      {...item}/>
     )
   }
 
