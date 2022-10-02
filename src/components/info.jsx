@@ -14,7 +14,7 @@ const Info = ({ title, image, description }) => {
       </p>
       <button onClick={() => setCartOpened(false)} className="page__button page__button--back">
         <p className="page__button__text">Вернуться назад</p>
-        <img className="page__button__img page__button__img--back" src="/img/arrow.svg" alt="" />
+        <img className="page__button__img page__button__img--back" src="img/arrow.svg" alt="" />
       </button>
     </div>
   )

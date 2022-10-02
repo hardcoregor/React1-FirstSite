@@ -42,7 +42,7 @@ function Page({ onCloseCart, onRemove, items = [], opened }) {
         <div className="page__header">
           <h2 className="page__title">Корзина</h2>
           <button onClick={onCloseCart} className="card__button card__button--close">
-            <img className="card__button--size" src="/img/close.svg" alt="close" />
+            <img className="card__button--size" src="img/close.svg" alt="close" />
           </button>
         </div>
 
@@ -59,7 +59,7 @@ function Page({ onCloseCart, onRemove, items = [], opened }) {
                       <p className="page__item__price">{obj.price} грн.</p>
                     </div>
                     <button onClick={() => onRemove(obj.id)} className="card__button card__button--close">
-                      <img className="card__button--size" src="/img/close.svg" alt="close" />
+                      <img className="card__button--size" src="img/close.svg" alt="close" />
                     </button>
                   </div>
                 ))}
@@ -79,7 +79,7 @@ function Page({ onCloseCart, onRemove, items = [], opened }) {
               </ul>
 
               <button disabled={isLoading} onClick={onClickOrder} className="page__button">Оформить заказ
-                <img className="page__button__img" src="/img/arrow.svg" alt="" />
+                <img className="page__button__img" src="img/arrow.svg" alt="" />
               </button>
             </div>
           </div>
@@ -87,7 +87,7 @@ function Page({ onCloseCart, onRemove, items = [], opened }) {
           <Info
             title={isComplete ? "Заказ оформлен!" : "Корзина пустая"}
             description={isComplete ? `Ваш заказ #${oredrId} скоро будет передан курьерской доставке` : "Добавьте хотя бы одну пару кроссовок, чтобы сделать заказ."}
-            image={isComplete ? "/img/complete-order.png" : "/img/box.png"} />
+            image={isComplete ? "img/complete-order.png" : "img/box.png"} />
         )}
 
 

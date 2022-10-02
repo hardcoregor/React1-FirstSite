@@ -22,10 +22,10 @@ function Home({ items, favorites, searchValue, setSearchValue, onChangeSearchInp
       <div className="panel">
         <h1 className="panel__title"> {searchValue ? `Поиск: "${searchValue}"` : 'Все кроссовки'}</h1>
         <div className="panel__search">
-          <img src="/img/search.svg" alt="Search" />
+          <img src="img/search.svg" alt="Search" />
           <input onChange={onChangeSearchInput} value={searchValue} className="panel__input" placeholder="Поиск.." />
           {searchValue && <button onClick={() => setSearchValue('')} className="card__button card__button--closed">
-            <img className="card__button--size" src="/img/close.svg" alt="close" />
+            <img className="card__button--size" src="img/close.svg" alt="close" />
           </button>}
         </div>
       </div>

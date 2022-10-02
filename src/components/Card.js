@@ -37,7 +37,7 @@ function Card({ id, onClickPlus, onFavorite, imageUrl, title, price, loading = f
 
             {onFavorite && <button className={isItemFav(id) ? "card__button card__button--liked" : "card__button card__button--like"} onClick={onClickFavorite}>
 
-              <img className="card__button--size" src={isItemFav(id) ? "/img/favorite.svg" : "/img/like.svg"} alt="heart" />
+              <img className="card__button--size" src={isItemFav(id) ? "img/favorite.svg" : "img/like.svg"} alt="heart" />
             </button>}
             <img className="card__photo" src={imageUrl} alt="" />
             <h4 className="card__describe">{title}</h4>
@@ -48,7 +48,7 @@ function Card({ id, onClickPlus, onFavorite, imageUrl, title, price, loading = f
               </div>
 
               {onClickPlus && <button className={isItemAdded(id) ? "card__button active" : "card__button"} onClick={handleClick}>
-                <img className="card__icon" src={isItemAdded(id) ? "/img/added.svg" : "/img/plus.svg"} alt="" />
+                <img className="card__icon" src={isItemAdded(id) ? "img/added.svg" : "img/plus.svg"} alt="" />
               </button>}
 
             </div>

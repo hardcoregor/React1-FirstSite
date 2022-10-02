@@ -108,7 +108,7 @@ function App() {
         />
 
         <Routes>
-          <Route path='/'
+          <Route path=''
             element={<Home
               items={items}
               cartItems={cartItems}
@@ -123,11 +123,11 @@ function App() {
         </Routes>
 
         <Routes>
-          <Route path='/favorites' element={<Favorites />} />
+          <Route path='favorites' element={<Favorites />} />
         </Routes>
 
         <Routes>
-          <Route path='/orders' element={<Orders />} />
+          <Route path='orders' element={<Orders />} />
         </Routes>
 
       </div>
